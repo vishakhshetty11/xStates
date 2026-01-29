@@ -60,17 +60,21 @@ function Home() {
         }
     }
     return (
-        <div style={{ display: 'flex', justifyContent: "center", gap: "20px" }}>
-            <Dropdown data={country} initialValue={selectedCountry} setValue={setSelectedCountry}
-                type="Country" selectedCountry={selectedCountry} prevDropValue={selectedCountry}
-                bindNextDropdown={(value) => getState(value)} />
+        <div><h2>Select Location</h2>
+            <div style={{ display: 'flex', justifyContent: "center", gap: "20px" }}>
+                <Dropdown data={country} initialValue={selectedCountry} setValue={setSelectedCountry}
+                    type="Country" selectedCountry={selectedCountry} prevDropValue={selectedCountry}
+                    bindNextDropdown={(value) => getState(value)} />
 
-            <Dropdown data={state} initialValue={selectedState} setValue={setSelectedState}
-                type="State" selectedCountry={selectedCountry} prevDropValue={selectedCountry}
-                bindNextDropdown={(value1, value2) => getCity(value1, value2)} />
+                <Dropdown data={state} initialValue={selectedState} setValue={setSelectedState}
+                    type="State" selectedCountry={selectedCountry} prevDropValue={selectedCountry}
+                    bindNextDropdown={(value1, value2) => getCity(value1, value2)} />
 
-            <Dropdown data={city} initialValue={selectedCity} setValue={setSelectedCity}
-                type="City" selectedCountry={selectedCountry} prevDropValue={selectedState} />
+                <Dropdown data={city} initialValue={selectedCity} setValue={setSelectedCity}
+                    type="City" selectedCountry={selectedCountry} prevDropValue={selectedState} />
+            </div>
+            {selectedCountry !== "-1" && selectedState !== "-1" && selectedCity !== "-1" &&
+            <h3>You selected {selectedCity}, {selectedState}, {selectedCountry}</h3>}
         </div>)
 
 }
