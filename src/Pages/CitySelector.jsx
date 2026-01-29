@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Dropdown from '../Components/Dropdown';
 
-function Home() {
+function CitySelector() {
     const [country, setCountry] = useState([]);
     const [state, setState] = useState([]);
     const [city, setCity] = useState([]);
